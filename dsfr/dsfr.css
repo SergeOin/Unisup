@@ -9028,8 +9028,8 @@ un padding de 4px et une marge négative en compensation sont mis en place afin 
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .fr-pagination__list > *:first-child,
