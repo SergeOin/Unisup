@@ -84,16 +84,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
-                    <form class="form" method="post" action="/fr/login">
+                    <form @submit.prevent='submitForm' class="form" method="post" action="/fr/login">
                         <fieldset>
                             <legend class="h2 mb-xl">Se connecter</legend>
                             <input id="next" name="next" type="hidden" value="/fr/datasets/">
                             <div class="field">
-                                <label for="email" class="required">
+                                <label for="codeine" class="required">
                                     Adresse email
                                 </label>
-
-                                <input id="email" name="email" type="email" required></input>
+                                <input id="codeine" name="codeine" type="text" required></input>
                             </div>
                             <div class="field">
                                 <label for="password" class="required">
@@ -189,6 +188,26 @@
     <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
+    <script>
+        import axios from "axios";
+        export default {
+            data() {
+                return {
+                codeine: '',
+                password: '' 
+                }
+            },
+            methods: {
+                async submitForm() {
+                    const response = await axios.post('login', {
+                        codeine: this.email,
+                        password: this.password 
+                    }); 
+                    localStorage.setItem('token', response.data.token);
+                }
+            }
+        } 
+    </script>
 </body>
 
 </html>
