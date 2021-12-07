@@ -195,15 +195,15 @@
         export default {
             data() {
                 return {
-                codeine: '',
-                password: '' 
+                CodeINE: '',
+                Password: '' 
                 }
             },
             methods: {
                 async submitForm() {
                     const response = await axios.post('login', {
-                        codeine: this.email,
-                        password: this.password 
+                        codeine: this.CodeINE,
+                        password: this.Password 
                     }); 
                     localStorage.setItem('token', response.data.token);
                 }

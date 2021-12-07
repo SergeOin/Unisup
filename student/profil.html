@@ -146,5 +146,22 @@
     <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
+    <script>
+        import axios from 'axios';
+        export default {
+            name: 'Accueil',
+            data(){
 
-     
+            },
+            async created() {
+                const response = await axios.get('students', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem('token')
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
