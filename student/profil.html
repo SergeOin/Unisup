@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://static.data.gouv.fr/_themes/gouvfr/less/index.css?_=1.1.2" rel="stylesheet">
     <link href="https://static.data.gouv.fr/_themes/gouvfr/js/index.css?_=1.1.2" rel="stylesheet">
-    <link rel="stylesheet" href="dsfr/dsfr.min.css">
+    <link rel="stylesheet" href="../dsfr/dsfr.min.css">
+    <link rel="stylesheet" href="../dsfr/formations.css">
     <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
@@ -66,10 +67,10 @@
                             <a class="fr-nav__link" href="#" target="_self" aria-current="true">Accueil</a>
                         </li>
                         <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="./student/calendrier.html" target="_self">Calendrier</a>
+                            <a class="fr-nav__link" href="./calendrier.html" target="_self">Calendrier</a>
                         </li>
                         <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="./student/formations.html" target="_self">Formations</a>
+                            <a class="fr-nav__link" href="./formations.html" target="_self">Formations</a>
                         </li>
                         <li class="fr-nav__item">
                             <a class="fr-nav__link" href="#" target="_self">Professions</a>
@@ -82,56 +83,11 @@
             </div>
         </div>
     </header>
-    <section class="py-xl py-lg-lg bg-grey-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
-                    <form class="form" method="post" action="/fr/login">
-                        <fieldset>
-                            <legend class="h2 mb-xl">Se connecter</legend>
-                            <input id="next" name="next" type="hidden" value="/fr/datasets/">
-                            <div class="field">
-                                <label for="email" class="required">
-                                    Adresse email
-                                </label>
-                                <input id="email" name="email" type="email" required></input>
-                            </div>
-                            <div class="field">
-                                <label for="password" class="required">
-                                    Mot de passe
-                                </label>
-                                <input id="password" name="password" required type="password" value="">
-                            </div>
-                            <div class="field field-checkbox">
-                                <input id="remember" name="remember" type="checkbox" value="y">
-                                <label for="remember">
-                                    Se souvenir de moi
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-primary form-submit">Se connecter</button>
-                            <input id="csrf_token" name="csrf_token" type="hidden"
-                                value="IjVhMzk2ZmMwZTYxYjVlMTJjZWNlZWExMGY3ZjdmNTBjZjgzNmNiNjki.Ya4WIw.iuhKXbgvfCSQPojpasSP0kPAD8k">
-                            <div class="mt-lg">
-                                <p class="fs-sm mb-sm">
-                                    Mot de passe oublié ?
-                                    <a href="/fr/reset?next=%2Ffr%2Flogin">
-                                        Récupérer votre mot de passe
-                                    </a>
-                                </p>
-                                <p class="fs-sm mb-sm">
-                                    Instructions de confirmation non reçues ?
-                                    <a href="/fr/confirm">
-                                        Renvoyer les instructions
-                                    </a>
-                                </p>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="fr-footer" role="contentinfo" id="footer-942">
+    
+
+     <br>
+
+     <footer class="fr-footer" role="contentinfo" id="footer-942">
         <div class="fr-container">
             <div class="fr-footer__body">
                 <div class="fr-footer__brand fr-enlarge-link">
@@ -190,6 +146,5 @@
     <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
-</body>
 
-</html>
+     
