@@ -85,29 +85,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
-                    <form class="form" method="post" action="login.html">
+                    <form id="login" class="form" method="post" action="login.html">
                         <fieldset>
-                            <legend class="h2 mb-xl">Se connecter</legend>
+                            <legend class="h2 mb-xl">Inscription</legend>
                             <input id="next" name="next" type="hidden" value="/fr/datasets/">
                             <div class="field">
                                 <label for="codeine" class="required">
-                                    Adresse email
+                                    Code INE
                                 </label>
-                                <input id="codeine" name="codeine" type="text" required></input>
+                                <input id="codeine" name="codeine" type="text" autocomplete="off" required></input>
                             </div>
                             <div class="field">
                                 <label for="password" class="required">
                                     Mot de passe
                                 </label>
-                                <input id="password" name="password" required type="password" value="">
+                                <input id="password" name="password" type="password" autocomplete="off" required>
                             </div>
                             <div class="field field-checkbox">
-                                <input id="remember" name="remember" type="checkbox" value="">
+                                <input id="remember" name="remember" type="checkbox" >
                                 <label for="remember">
                                     Se souvenir de moi
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-primary form-submit">Se connecter</button>
+                            <button type="submit" value="Submit Form" class="btn btn-primary form-submit">Se connecter</button>
                             <input id="csrf_token" name="csrf_token" type="hidden"value="IjVhMzk2ZmMwZTYxYjVlMTJjZWNlZWExMGY3ZjdmNTBjZjgzNmNiNjki.Ya4WIw.iuhKXbgvfCSQPojpasSP0kPAD8k">
                             <div class="mt-lg">
                                 <p class="fs-sm mb-sm">
@@ -188,6 +188,33 @@
     <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
+    <script>
+        const form = document.getElementById('login')
+        form.addEventListener('submit', login)
+
+        function login(event) { 
+            event.preventDefault()
+            const codeine = document.getElementById('codeine')
+            const password = document.getElementById('password')
+
+            const result = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    codeine,
+                    password
+                })
+            }).then((res) => res.json())
+
+            if (result.status === 'ok'){
+                alert('Bravo')
+            } else {
+               alert(result.error) 
+            }
+         }
+    </script>
 </body>
 
 </html>
