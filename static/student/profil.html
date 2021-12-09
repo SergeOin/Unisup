@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr" data-fr-scheme="system">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://static.data.gouv.fr/_themes/gouvfr/less/index.css?_=1.1.2" rel="stylesheet">
+    <link href="https://static.data.gouv.fr/_themes/gouvfr/js/index.css?_=1.1.2" rel="stylesheet">
+    <link rel="stylesheet" href="../dsfr/dsfr.min.css">
+    <link rel="stylesheet" href="../dsfr/formations.css">
+    <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+    <link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    <title>Bienvenue sur Unisup.gouv.fr</title>
+</head>
+<body>
+    <header role="banner" class="fr-header fr-mb-5v">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <div class="fr-header__brand fr-enlarge-link">
+                        <div class="fr-header__brand-top">
+                            <div class="fr-header__logo">
+                                <p class="fr-logo">
+                                    Unisup
+                                </p>
+                            </div>
+                            <div class="fr-header__navbar">
+                                <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-406"
+                                    aria-haspopup="menu" id="button-407" title="Menu">
+                                    Menu
+                                </button>
+                            </div>
+                        </div>
+                        <div class="fr-header__service">
+                            <a href="../index.html"
+                                title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d‘état, gouvernement)]">
+                                <p class="fr-header__service-title">Unisup</p>
+                            </a>
+                            <p class="fr-header__service-tagline">Entrez dans l’enseignement supérieur</p>
+                        </div>
+                    </div>
+                    <div class="fr-header__tools">
+                        <div class="fr-header__tools-links">
+                            <ul class="fr-links-group">
+                                <li>
+                                    <a class="fr-link fr-fi-lock-line" href="../login.html">Se connecter</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fr-header__menu fr-modal" id="modal-406" aria-labelledby="button-407">
+            <div class="fr-container">
+                <button class="fr-link--close fr-link" aria-controls="modal-406">Fermer</button>
+                <div class="fr-header__menu-links">
+                </div>
+                <nav class="fr-nav" id="navigation-408" role="navigation" aria-label="Menu principal">
+                    <ul class="fr-nav__list">
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="../index.html" target="_self" >Accueil</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="./calendrier.html" target="_self">Calendrier</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="./formations.html" target="_self">Formations</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="#" target="_self">Professions</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="./profil.html" target="_self" aria-current="true">Profil</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class = "fr-container">
+        <div class="fr-tabs">
+            <ul class="fr-tabs__list" role="tablist" aria-label="[A modifier | nom du système d'onglet]">
+                <li role="presentation">
+                    <button id="tabpanel-404" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-404-panel">Informations</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-405" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-405-panel">Motivations</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-406" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-406-panel">Scolarité</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-407" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="true" aria-controls="tabpanel-407-panel">Expérience</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-408" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-408-panel">Document</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-409" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-409-panel">Voeux</button>
+                </li>
+            </ul>
+            <div id="tabpanel-404-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-404" tabindex="0">
+                <!-- données de test -->
+               <p>Nom : </p>
+               <p>Prénom : </p>
+               <p>INE : </p>
+               <p>Mail : </p>
+            </div>
+            <div id="tabpanel-405-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-405" tabindex="0">
+                <!-- données de test -->
+                <p>Je souhaite m'orienter vers les formations et métiers de la comptabilité.</p>
+                <p>Passionné par les mathématiques, membre de l'association d'échecs de mon lycée, j'ai choisi l'option "mathématiques' car j'aime les chiffres et toutes les applications associées dans le domaine des sciences et des technologies vers lesquelles je souhaiterais m'orienter.
+                </p>
+                <p>Sensible par ailleurs aux matières artistiques, je prends aussi des petits cours du soir de musique, un domaine que je trouve très complémentaire des chiffres, mais que j'apprécie aussi par sa nécessité de rigueur via le solfège. </p>
+            </div>
+            <div id="tabpanel-406-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-406" tabindex="0">
+                <!-- données de test -->
+                <p>Contenu 3</p>
+                <div class="fr-table fr-table--bordered">
+                    <table>
+                        <caption>Note du dernier Trimestre</caption>
+                        <thead>
+                        <tr>
+                            <th scope="col">Matières</th>
+                            <th scope="col">Moyenne Max</th>
+                            <th scope="col">Moyenne de l'élève</th>
+                            <th scope="col">Moyenne minimal</th>
+                            <th scope="col">Apréciation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Français</td>
+                            <td>15</td>
+                            <td>11</td>
+                            <td>7</td>
+                            <td>S'applique au travail ce qui vient de payer au dernier contrôle. II faut poursuivre ses efforts.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mathématique</td>
+                            <td>14</td>
+                            <td>9</td>
+                            <td>3</td>
+                            <td>Des difficultés certaines, mais de la bonne volonté. Il ne faut pas que Y relâche ses efforts, elle devrait pouvoir combler ses lacunes et rattraper son retard.</td>
+                        </tr>
+                        <tr>
+                            <td>Histoire-Géographie</td>
+                            <td>16</td>
+                            <td>12</td>
+                            <td>8</td>
+                            <td>Les réflexions sont intéressantes et le travail sérieux, continuez ainsi.</td>
+                        </tr>
+                        <tr>
+                            <td>Physique - Chimie</td>
+                            <td>17</td>
+                            <td>13</td>
+                            <td>6</td>
+                            <td>Le travail est assez bon dans l'ensemble. C'est encourageant pour le prochain trimestre.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SVT</td>
+                            <td>18</td>
+                            <td>9</td>
+                            <td>5</td>
+                            <td>Assez bien, pourrait progresser plus vite s'il s’en donnait vraiment la peine.</td>
+                        </tr>
+                        <tr>
+                            <td>LV1</td>
+                            <td>19</td>
+                            <td>15</td>
+                            <td>7</td>
+                            <td>C'est très bien. Bonne participation. Attitude très positive. Il faut continuer ainsi.</td>
+                        </tr>
+                        <tr>
+                            <td>LV2</td>
+                            <td>18</td>
+                            <td>12</td>
+                            <td>8</td>
+                            <td>Bon travail. C'est tout a fait encourageant.</td>
+                        </tr>
+                        <tr>
+                            <td>Sport</td>
+                            <td>20</td>
+                            <td>14</td>
+                            <td>10</td>
+                            <td>C'est très bien. Bonne participation. Attitude très positive. Il faut continuer ainsi.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="tabpanel-407-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-407" tabindex="0">
+                <!-- données de test -->
+                <div>
+                    <label for="file"><p>Vous pouvez joindre vos documents / images en liens avec le bénévolat</p></label>
+                    <input type="file" id="file" name="file" multiple>
+                </div>
+                <div>
+                    <br>
+                    <label for="file"><p>Vous pouvez joindre vos documents / images en liens avec l'art</p></label>
+                    <input type="file" id="file" name="file" multiple>
+                </div>
+                <div>
+                    <br>
+                    <label for="file"><p>Vous pouvez joindre vos documents / images en liens avec le bénévolat</p></label>
+                    <input type="file" id="file" name="file" multiple>
+                </div>
+            </div>
+            <div id="tabpanel-408-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-405" tabindex="0">
+                <!-- données de test -->
+                <div>
+                    <label for="file"><p>Vous pouvez joindre votre CV</p></label>
+                    <input type="file" id="file" name="file" multiple>
+                </div>
+            </div>
+            <div id="tabpanel-409-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-406" tabindex="0">
+                <!-- données de test -->
+                <p>Contenu 6</p>
+            </div>
+        </div>
+    </div>
+
+     <br>
+
+     <footer class="fr-footer" role="contentinfo" id="footer-942">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <a href="/" title="Retour à l’accueil">
+                        <p class="fr-logo">
+                            république
+                            <br>française
+                        </p>
+                    </a>
+                </div>
+                <div class="fr-footer__content">
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://gouvernement.fr">gouvernement.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://service-public.fr">service-public.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link" href="https://data.gouv.fr">data.gouv.fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <ul class="fr-footer__bottom-list">
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Plan du site</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Accessibilité : non/partiellement/totalement
+                            conforme</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Mentions légales</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Données personnelles</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
+                    </li>
+                </ul>
+                <div class="fr-footer__bottom-copy">
+                    <p>Sauf mention contraire, tous les contenus de ce site sont sous <a
+                            href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence
+                            etalab-2.0</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
+    <script type="module" src="../dsfr/dsfr.module.min.js"></script>
+    <script type="text/javascript" nomodule src="../dsfr/dsfr.nomodule.min.js"></script>
+    <script>
+        import axios from 'axios';
+        export default {
+            name: 'Accueil',
+            data(){
+
+            },
+            async created() {
+                const response = await axios.get('students', {
+                    headers: {
+                        Authorization: 'Bearer ' + localStorage.getItem('token')
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
