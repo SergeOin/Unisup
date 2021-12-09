@@ -22,7 +22,7 @@
                 <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
                     <form id="reg-form" class="form" method="post">
                         <fieldset>
-                            <legend class="h2 mb-xl">Inscription</legend>
+                            <legend class="h2 mb-xl">Inscription Etudiants</legend>
                             <input id="next" name="next" type="hidden" value="/fr/datasets/">
                             <div class="field">
                                 <label for="codeine" class="required">
@@ -36,28 +36,20 @@
                                 </label>
                                 <input id="password" name="password" type="password" autocomplete="off" required>
                             </div>
-                            <div class="field field-checkbox">
-                                <input id="remember" name="remember" type="checkbox" >
-                                <label for="remember">
-                                    Se souvenir de moi
+                            <div class="field">
+                                <label for="prenom" class="required">
+                                    Prénom
                                 </label>
+                                <input type="text" autocomplete="off" id="prenom" placeholder="votre prénom" required></input>
                             </div>
-                            <button type="submit" value="Submit Form" class="btn btn-primary form-submit">Se connecter</button>
+                            <div class="field">
+                                <label for="nom" class="required">
+                                    Nom
+                                </label>
+                                <input type="text" autocomplete="off" id="nom" placeholder="vote nom" required></input>
+                            </div>
+                            <button type="submit" value="Submit Form" class="btn btn-primary form-submit">Enregistrer</button>
                             <input id="csrf_token" name="csrf_token" type="hidden"value="IjVhMzk2ZmMwZTYxYjVlMTJjZWNlZWExMGY3ZjdmNTBjZjgzNmNiNjki.Ya4WIw.iuhKXbgvfCSQPojpasSP0kPAD8k">
-                            <div class="mt-lg">
-                                <p class="fs-sm mb-sm">
-                                    Mot de passe oublié ?
-                                    <a href="/fr/reset?next=%2Ffr%2Flogin">
-                                        Récupérer votre mot de passe
-                                    </a>
-                                </p>
-                                <p class="fs-sm mb-sm">
-                                    Instructions de confirmation non reçues ?
-                                    <a href="/fr/confirm">
-                                        Renvoyer les instructions
-                                    </a>
-                                </p>
-                            </div>
                         </fieldset>
                     </form>
                 </div>
@@ -75,6 +67,8 @@
 				event.preventDefault()
 				const username = document.getElementById('username').value
 				const password = document.getElementById('password').value
+                const prenom = document.getElementById('prenom').value
+                const nom = document.getElementById('nom').value
 
 				const result = await fetch('/api/register', {
 					method: 'POST',
@@ -83,7 +77,9 @@
 					},
 					body: JSON.stringify({
 						username,
-						password
+						password,
+                        prenom,
+                        nom
 					})
 				}).then((res) => res.json())
 
