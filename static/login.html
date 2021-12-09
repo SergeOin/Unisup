@@ -46,7 +46,7 @@
                         <div class="fr-header__tools-links">
                             <ul class="fr-links-group">
                                 <li>
-                                    <a class="fr-link fr-fi-lock-line" href="Login.html">Se connecter</a>
+                                    <a class="fr-link fr-fi-lock-line" href="login.html">Se connecter</a>
                                 </li>
                             </ul>
                         </div>
@@ -93,7 +93,7 @@
                                 <label for="codeine" class="required">
                                     Code INE
                                 </label>
-                                <input id="codeine" name="codeine" type="text" autocomplete="off" required></input>
+                                <input type="text" autocomplete="off" id="username" placeholder="Code INE" required></input>
                             </div>
                             <div class="field">
                                 <label for="password" class="required">
@@ -189,31 +189,34 @@
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
     <script>
-        const form = document.getElementById('login')
-        form.addEventListener('submit', login)
+       const form = document.getElementById('login')
+			form.addEventListener('submit', login)
 
-        function login(event) { 
-            event.preventDefault()
-            const codeine = document.getElementById('codeine')
-            const password = document.getElementById('password')
+			async function login(event) {
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
 
-            const result = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    codeine,
-                    password
-                })
-            }).then((res) => res.json())
+				const result = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
 
-            if (result.status === 'ok'){
-                alert('Bravo')
-            } else {
-               alert(result.error) 
-            }
-         }
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data)
+					localStorage.setItem('token', result.data)
+					window.location.href = "student/profil.html";
+				} else {
+					alert(result.error)
+				}
+			}
     </script>
 </body>
 

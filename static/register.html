@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
-                    <form id="reg-form" class="form" method="post" action="login.html">
+                    <form id="reg-form" class="form" method="post">
                         <fieldset>
                             <legend class="h2 mb-xl">Inscription</legend>
                             <input id="next" name="next" type="hidden" value="/fr/datasets/">
@@ -28,7 +28,7 @@
                                 <label for="codeine" class="required">
                                     Code INE
                                 </label>
-                                <input id="codeine" name="codeine" type="text" autocomplete="off" required></input>
+                                <input type="text" autocomplete="off" id="username" placeholder="Code INE" required></input>
                             </div>
                             <div class="field">
                                 <label for="password" class="required">
@@ -69,30 +69,31 @@
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
     <script>
         const form = document.getElementById('reg-form')
-        form.addEventListener('submit', registerStudent)
+			form.addEventListener('submit', registerUser)
 
-        function registerStudent(event) { 
-            event.preventDefault()
-            const codeine = document.getElementById('codeine')
-            const password = document.getElementById('password')
+			async function registerUser(event) {
+				event.preventDefault()
+				const username = document.getElementById('username').value
+				const password = document.getElementById('password').value
 
-            const result = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    codeine,
-                    password
-                })
-            }).then((res) => res.json())
+				const result = await fetch('/api/register', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						username,
+						password
+					})
+				}).then((res) => res.json())
 
-            if (result.status === 'ok'){
-                alert('Bravo')
-            } else {
-               alert(result.error) 
-            }
-         }
+				if (result.status === 'ok') {
+					// everythign went fine
+					alert('Success')
+				} else {
+					alert(result.error)
+				}
+			}
     </script>
 </body>
 
