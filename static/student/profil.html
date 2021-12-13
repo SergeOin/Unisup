@@ -290,11 +290,13 @@
     <script type="module" src="../dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="../dsfr/dsfr.nomodule.min.js"></script>
     <script>
-        if (localStorage.setItem('token', result.data) !== null) {
-					//nothing
-				} else {
-					window.location.href = "../login.html";
-				}
+        if(sessionStorage.getItem('token') != null){
+            // do nothing
+            console.log()
+        } else {
+            window.location.href = "../login.html";
+            console.log()
+        }
     </script>
 </body>
 
