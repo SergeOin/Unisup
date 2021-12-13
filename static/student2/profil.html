@@ -38,7 +38,7 @@
                         </div>
                         <div class="fr-header__service">
                             <a href="../index.html"
-                                title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d‘état, gouvernement)]">
+                                title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d état, gouvernement)]">
                                 <p class="fr-header__service-title">Unisup</p>
                             </a>
                             <p class="fr-header__service-tagline">Entrez dans l’enseignement supérieur</p>
@@ -104,11 +104,13 @@
                 </li>
             </ul>
             <div id="tabpanel-404-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-404" tabindex="0">
-                <!-- données de test -->
+
                <p>Nom : Dupont </p>
                <p>Prénom : Jean-Michel </p>
                <p>INE : </p>
                <p>Mail : </p>
+
+
             </div>
             <div id="tabpanel-405-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-405" tabindex="0">
                 <!-- données de test -->
@@ -288,11 +290,13 @@
     <script type="module" src="../dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="../dsfr/dsfr.nomodule.min.js"></script>
     <script>
-        if (localStorage.setItem('token', result.data) !== null) {
-					//nothing
-				} else {
-					window.location.href = "../login.html";
-				}
+        if(sessionStorage.getItem('token') != null){
+            // do nothing
+            console.log()
+        } else {
+            window.location.href = "../login.html";
+            console.log()
+        }
     </script>
 </body>
 

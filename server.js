@@ -14,6 +14,17 @@ const app = express()
 app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(bodyParser.json())
 
+/*app.post('/api/profil', async (req, res) => {
+	const { token } = req.body
+	try {
+		const user = jwt.verify(token, JWT_SECRET)
+		const _id = user.id
+	} catch (error) {
+		console.log(error)
+		res.json({ status: 'error', error: ';))' })
+	}
+})*/
+
 app.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body
 
@@ -74,7 +85,7 @@ app.post('/api/login', async (req, res) => {
 })
 
 app.post('/api/register', async (req, res) => {
-	const { username, password: plainTextPassword } = req.body
+	const { username, password: plainTextPassword, prenom, nom } = req.body
 
 	if (!username || typeof username !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid username' })
@@ -91,12 +102,22 @@ app.post('/api/register', async (req, res) => {
 		})
 	}
 
+	if (!prenom || typeof prenom !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid prenom' })
+	}
+
+	if (!nom || typeof nom !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid nom' })
+	}
+
 	const password = await bcrypt.hash(plainTextPassword, 10)
 
 	try {
 		const response = await User.create({
 			username,
-			password
+			password,
+			prenom,
+			nom
 		})
 		console.log('User created successfully: ', response)
 	} catch (error) {

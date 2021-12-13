@@ -81,44 +81,201 @@
             </div>
         </div>
     </header>
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Edogaru</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+    <div class = "fr-container">
+        
+        <div class="fr-tabs">
+            <ul class="fr-tabs__list" role="tablist" aria-label="[A modifier | nom du système d'onglet]">
+                <li role="presentation">
+                    <button id="tabpanel-404" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="0" role="tab" aria-selected="true" aria-controls="tabpanel-404-panel">Résumé</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-405" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-405-panel">Motivations</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-406" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-406-panel">Note</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-407" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="true" aria-controls="tabpanel-407-panel">Expérience</button>
+                </li>
+                <li role="presentation">
+                    <button id="tabpanel-408" class="fr-tabs__tab fr-fi-checkbox-line fr-tabs__tab--icon-left" tabindex="-1" role="tab" aria-selected="false" aria-controls="tabpanel-408-panel">Document</button>
+                </li>
+            </ul>
+            <div id="tabpanel-404-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-404" tabindex="0">
+                <!-- données de test -->
+                <p>INE : 2457346789G</p>
+                <p>Taux de comptabilité : 86%</p>
+                <p>Formulaire de mitovation : 7/10</p>
+                <p>Résultats : 6/10<a>Détails</a></p>
+                <p>Recommendation : Oui</p>
+
+
             </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                        <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                        <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            <div id="tabpanel-405-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-405" tabindex="0">
+                <!-- données de test -->
+                <p>Je souhaite m'orienter vers les formations et métiers de la comptabilité.</p>
+                <p>Passionné par les mathématiques, membre de l'association d'échecs de mon lycée, j'ai choisi l'option "mathématiques' car j'aime les chiffres et toutes les applications associées dans le domaine des sciences et des technologies vers lesquelles je souhaiterais m'orienter.
+                </p>
+                <p>Sensible par ailleurs aux matières artistiques, je prends aussi des petits cours du soir de musique, un domaine que je trouve très complémentaire des chiffres, mais que j'apprécie aussi par sa nécessité de rigueur via le solfège. </p>
+                <a>Voire les detials des formulaire</a>
+            </div>
+            <div id="tabpanel-406-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-406" tabindex="0">
+                <!-- données de test -->
+                <p>Moyenne général : 14/20</p>
+                <p>Moyenne scientifique : 16/20</p>
+                <div class="fr-table fr-table--bordered">
+                    <table>
+                        <caption>Note du dernier Trimestre</caption>
+                        <thead>
+                        <tr>
+                            <th scope="col">Matières</th>
+                            <th scope="col">Moyenne Max</th>
+                            <th scope="col">Moyenne de l'élève</th>
+                            <th scope="col">Moyenne minimal</th>
+                            <th scope="col">Apréciation</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Français</td>
+                            <td>15</td>
+                            <td>11</td>
+                            <td>7</td>
+                            <td>S'applique au travail ce qui vient de payer au dernier contrôle. II faut poursuivre ses efforts.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mathématique</td>
+                            <td>14</td>
+                            <td>9</td>
+                            <td>3</td>
+                            <td>Des difficultés certaines, mais de la bonne volonté. Il ne faut pas que Y relâche ses efforts, elle devrait pouvoir combler ses lacunes et rattraper son retard.</td>
+                        </tr>
+                        <tr>
+                            <td>Histoire-Géographie</td>
+                            <td>16</td>
+                            <td>12</td>
+                            <td>8</td>
+                            <td>Les réflexions sont intéressantes et le travail sérieux, continuez ainsi.</td>
+                        </tr>
+                        <tr>
+                            <td>Physique - Chimie</td>
+                            <td>17</td>
+                            <td>13</td>
+                            <td>6</td>
+                            <td>Le travail est assez bon dans l'ensemble. C'est encourageant pour le prochain trimestre.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SVT</td>
+                            <td>18</td>
+                            <td>9</td>
+                            <td>5</td>
+                            <td>Assez bien, pourrait progresser plus vite s'il s’en donnait vraiment la peine.</td>
+                        </tr>
+                        <tr>
+                            <td>LV1</td>
+                            <td>19</td>
+                            <td>15</td>
+                            <td>7</td>
+                            <td>C'est très bien. Bonne participation. Attitude très positive. Il faut continuer ainsi.</td>
+                        </tr>
+                        <tr>
+                            <td>LV2</td>
+                            <td>18</td>
+                            <td>12</td>
+                            <td>8</td>
+                            <td>Bon travail. C'est tout a fait encourageant.</td>
+                        </tr>
+                        <tr>
+                            <td>Sport</td>
+                            <td>20</td>
+                            <td>14</td>
+                            <td>10</td>
+                            <td>C'est très bien. Bonne participation. Attitude très positive. Il faut continuer ainsi.</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                </div>
-            </div>
+            <div id="tabpanel-407-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-407" tabindex="0">
+                <ul class="fr-accordions-group">
+                    <li>
+                        <section class="fr-accordion">
+                            <h3 class="fr-accordion__title">
+                                <button class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-89">CV</button>
+                            </h3>
+                            <div class="fr-collapse" id="accordion-89">
+                                <div class="fr-form-group">
+                                    <fieldset class="fr-fieldset">
+                                        <legend class="fr-fieldset__legend" id='radio-rich-legend'>
+                                            Télecharger CV
+                                        </legend>
+                                        <div class="fr-fieldset__content">
+                                            <div class="fr-radio-group fr-radio-rich">
+                                                <input type="radio" id="radio-rich-1" name="radio-rich">
+                                                <label class="fr-label" for="radio-rich-1">CV
+                                                </label>
+                                                <div class="fr-radio__img">
+                                                <img src="./img/placeholder.1x1.png" alt="" />
+                                                <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+                    <li>
+                        <section class="fr-accordion">
+                            <h3 class="fr-accordion__title">
+                                <button class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-90">Lettre de mitovation</button>
+                            </h3>
+                            <div class="fr-collapse" id="accordion-90">
+                                <div class="fr-form-group">                                    
+                                    <legend class="fr-fieldset__legend" id='radio-rich-legend'>
+                                        Télecharger la lettre de motivation
+                                    </legend>
+                                    <div class="fr-fieldset__content">
+                                        <div class="fr-radio-group fr-radio-rich">
+                                            <input type="radio" id="radio-rich-2" name="radio-rich">
+                                            <label class="fr-label" for="radio-rich-2">Lettre de mitovation
+                                            </label>
+                                            <div class="fr-radio__img">
+                                                <img src="./img/placeholder.1x1.png" alt="" />
+                                                <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div> 
+                        </section>
+                    </li>
+                    <li>
+                        <section class="fr-accordion">
+                            <h3 class="fr-accordion__title">
+                                <button class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-91">Autre document</button>
+                            </h3>
+                            <div class="fr-collapse" id="accordion-91">
+                                <div class="fr-form-group">                                    
+                                        <legend class="fr-fieldset__legend" id='radio-rich-legend'>
+                                            Télecharger le book
+                                        </legend>
+                                        <div class="fr-fieldset__content">
+                                            <div class="fr-radio-group fr-radio-rich">
+                                                <input type="radio" id="radio-rich-3" name="radio-rich">
+                                                <label class="fr-label" for="radio-rich-3">Book 
+                                                </label>
+                                                <div class="fr-radio__img">
+                                                    <img src="./img/placeholder.1x1.png" alt="" />
+                                                    <!-- L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>                     
+                            </div>
+                        </section>
+                    </li>
+                </ul>
         </div>
     </div>
     <div class="fr-footer__bottom">
@@ -153,3 +310,5 @@
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
 </body>
 </html>
+<script type="module" src="../dsfr/dsfr.module.min.js"></script>
+<script type="text/javascript" nomodule src="../dsfr/dsfr.nomodule.min.js"></script>
