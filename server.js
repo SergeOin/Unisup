@@ -14,16 +14,19 @@ const app = express()
 app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(bodyParser.json())
 
-/*app.post('/api/profil', async (req, res) => {
-	const { token } = req.body
-	try {
-		const user = jwt.verify(token, JWT_SECRET)
-		const _id = user.id
-	} catch (error) {
-		console.log(error)
-		res.json({ status: 'error', error: ';))' })
-	}
-})*/
+app.get("/users/me", function(req, res){
+	const authHeader =  req.headers.authorization.split('Bearer ')[1]
+	jwt.verify(authHeader, JWT_SECRET, (err, decoded) => {
+		if (err) return res.sendStatus(403)
+		User.findById(decoded.id, function(err, foundUser) {
+			if(err) {
+				req.flash("error", "Problème");
+				req.redirect("/");
+			}
+			res.json({user: foundUser});
+		})
+	})
+});
 
 app.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body

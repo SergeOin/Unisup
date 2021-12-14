@@ -107,9 +107,9 @@
             </ul>
             <div id="tabpanel-404-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-404" tabindex="0">
                 <!-- données de test -->
-               <p>Nom : </p>
-               <p>Prénom : </p>
-               <p>INE : </p>
+               <p>Nom : <span id="getnom"></span></p>
+               <p>Prénom : <span id="getprenom"></span></p>
+               <p>INE : <span id="getusername"></span></p>
                <p>Mail : </p>
             </div>
             <div id="tabpanel-405-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-405" tabindex="0">
@@ -290,13 +290,24 @@
     <script type="module" src="../dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="../dsfr/dsfr.nomodule.min.js"></script>
     <script>
-        if(sessionStorage.getItem('token') != null){
-            // do nothing
-            console.log()
+        if(localStorage.getItem('token') != null){
+            console.log(localStorage.getItem('token'))
+            var headers = new Headers({
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            })
+            fetch('/users/me', { headers }).then((response) => {
+                console.log(response)
+                response.json().then((data) => {
+                    document.getElementById('getnom').innerText = data.user.nom 
+                    document.getElementById('getprenom').innerText = data.user.prenom
+                    document.getElementById('getusername').innerText = data.user.username
+                })
+            })
         } else {
             window.location.href = "../login.html";
             console.log()
         }
+        
     </script>
 </body>
 
