@@ -293,12 +293,12 @@
             var headers = new Headers({
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             })
-            fetch('/users/me', { headers }).then((response) => {
+            fetch('/students/me', { headers }).then((response) => {
                 console.log(response)
                 response.json().then((data) => {
-                    document.getElementById('getnom').innerText = data.user.nom 
-                    document.getElementById('getprenom').innerText = data.user.prenom
-                    document.getElementById('getusername').innerText = data.user.username
+                    document.getElementById('getnom').innerText = data.student.nom 
+                    document.getElementById('getprenom').innerText = data.student.prenom
+                    document.getElementById('getusername').innerText = data.student.codeine
                 })
             })
         } else {

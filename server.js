@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const User = require('./model/user')
+const Student = require('./model/student')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -14,16 +14,16 @@ const app = express()
 app.use('/', express.static(path.join(__dirname, 'static')))
 app.use(bodyParser.json())
 
-app.get("/users/me", function(req, res){
+app.get("/students/me", function(req, res){
 	const authHeader =  req.headers.authorization.split('Bearer ')[1]
 	jwt.verify(authHeader, JWT_SECRET, (err, decoded) => {
 		if (err) return res.sendStatus(403)
-		User.findById(decoded.id, function(err, foundUser) {
+		Student.findById(decoded.id, function(err, foundStudent) {
 			if(err) {
 				req.flash("error", "Problème");
 				req.redirect("/");
 			}
-			res.json({user: foundUser});
+			res.json({student: foundStudent});
 		})
 	})
 });
@@ -43,13 +43,13 @@ app.post('/api/change-password', async (req, res) => {
 	}
 
 	try {
-		const user = jwt.verify(token, JWT_SECRET)
+		const student = jwt.verify(token, JWT_SECRET)
 
-		const _id = user.id
+		const _id = student.id
 
 		const password = await bcrypt.hash(plainTextPassword, 10)
 
-		await User.updateOne(
+		await Student.updateOne(
 			{ _id },
 			{
 				$set: { password }
@@ -63,20 +63,20 @@ app.post('/api/change-password', async (req, res) => {
 })
 
 app.post('/api/login', async (req, res) => {
-	const { username, password } = req.body
-	const user = await User.findOne({ username }).lean()
+	const { codeine, password } = req.body
+	const student = await Student.findOne({ codeine }).lean()
 
-	if (!user) {
-		return res.json({ status: 'error', error: 'Invalid username/password' })
+	if (!student) {
+		return res.json({ status: 'error', error: 'Invalid codeine/password' })
 	}
 
-	if (await bcrypt.compare(password, user.password)) {
+	if (await bcrypt.compare(password, student.password)) {
 		// the username, password combination is successful
 
 		const token = jwt.sign(
 			{
-				id: user._id,
-				username: user.username
+				id: student._id,
+				codeine: student.codeine
 			},
 			JWT_SECRET
 		)
@@ -88,9 +88,9 @@ app.post('/api/login', async (req, res) => {
 })
 
 app.post('/api/register', async (req, res) => {
-	const { username, password: plainTextPassword, prenom, nom } = req.body
+	const { codeine, password: plainTextPassword, prenom, nom } = req.body
 
-	if (!username || typeof username !== 'string') {
+	if (!codeine || typeof codeine !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid username' })
 	}
 
@@ -116,13 +116,13 @@ app.post('/api/register', async (req, res) => {
 	const password = await bcrypt.hash(plainTextPassword, 10)
 
 	try {
-		const response = await User.create({
-			username,
+		const response = await Student.create({
+			codeine,
 			password,
 			prenom,
 			nom
 		})
-		console.log('User created successfully: ', response)
+		console.log('Student created successfully: ', response)
 	} catch (error) {
 		if (error.code === 11000) {
 			// duplicate key
