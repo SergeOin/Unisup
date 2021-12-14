@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="dsfr/dsfr.min.css">
     <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
-    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xmal">
     <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
     <link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="fr-header__service">
-                            <a href="index.html"
+                            <a href="../choix.html"
                                 title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d‘état, gouvernement)]">
                                 <p class="fr-header__service-title">Unisup</p>
                             </a>
@@ -54,73 +54,39 @@
                 </div>
             </div>
         </div>
-        <div class="fr-header__menu fr-modal" id="modal-406" aria-labelledby="button-407">
-            <div class="fr-container">
-                <button class="fr-link--close fr-link" aria-controls="modal-406">Fermer</button>
-                <div class="fr-header__menu-links">
-                </div>
-                <nav class="fr-nav" id="navigation-408" role="navigation" aria-label="Menu principal">
-                    <ul class="fr-nav__list">
-                        <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="index.html" target="_self">Accueil</a>
-                        </li>
-                        <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="./student/calendrier.html" target="_self">Calendrier</a>
-                        </li>
-                        <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="./student/formations.html" target="_self">Formations</a>
-                        </li>
-                        
-                        <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="./student/profil.html" target="_self">Profil</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        
     </header>
-    <section class="py-xl py-lg-lg bg-grey-50">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
-                    <form id="login" class="form" method="post" action="login.html">
-                        <fieldset>
-                            <legend class="h2 mb-xl">Se Connecter</legend>
-                            <input id="next" name="next" type="hidden" value="/fr/datasets/">
-                            <div class="field">
-                                <label for="codeine" class="required">
-                                    Code INE
-                                </label>
-                                <input type="text" autocomplete="off" id="username" placeholder="Code INE" required></input>
-                            </div>
-                            <div class="field">
-                                <label for="password" class="required">
-                                    Mot de passe
-                                </label>
-                                <input id="password" name="password" type="password" autocomplete="off" required>
-                            </div>
-                            <button type="submit" value="Submit Form" class="btn btn-primary form-submit">Se connecter</button>
-                            <input id="csrf_token" name="csrf_token" type="hidden"value="IjVhMzk2ZmMwZTYxYjVlMTJjZWNlZWExMGY3ZjdmNTBjZjgzNmNiNjki.Ya4WIw.iuhKXbgvfCSQPojpasSP0kPAD8k">
-                            <div class="mt-lg">
-                                <p class="fs-sm mb-sm">
-                                    Mot de passe oublié ?
-                                    <a href="./change-password.html">
-                                        Récupérer votre mot de passe
-                                    </a>
-                                </p>
-                                <p class="fs-sm mb-sm">
-                                    Instructions de confirmation non reçues ?
-                                    <a href="/fr/confirm">
-                                        Renvoyer les instructions
-                                    </a>
-                                </p>
-                            </div>
-                        </fieldset>
-                    </form>
+    <div class="fr-container">
+      
+                    <!-- Tuile verticale avec description -->
+
+            <div class="fr-tile fr-enlarge-link">
+                <div class="fr-tile__body">
+                    <h4 class="fr-tile__title">
+                    <a class="fr-tile__link" href='../university/home-university.html'>Le monde des enseignants</a>
+                    </h4>
+                    <p class="fr-tile__desc">Vous trouverez ici l'espace dédié aux universités.</p>
+                </div>
+            <div class="fr-tile__img">
+                <img src="../img/placeholder.1x1.png" class="fr-responsive-img" alt="">
+                <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="fr-tile fr-enlarge-link">
+                <div class="fr-tile__body">
+                    <h4 class="fr-tile__title">
+                    <a class="fr-tile__link" href='../index.html'>Le monde des étudiants</a>
+                    </h4>
+                    <p class="fr-tile__desc">Vous trouverez ici l'espace dédié aux étudiants.</p>
+                </div>
+            <div class="fr-tile__img">
+                <img src="../img/placeholder.1x1.png" class="fr-responsive-img" alt="">
+                <!-- L'alternative de l'image (attribut alt) doit à priori rester vide car l'image est illustrative et ne doit pas être restituée aux technologies d’assistance. Vous pouvez toutefois remplir l'alternative si vous estimer qu'elle apporte une information essentielle à la compréhension du contenu non présente dans le texte -->
+                </div>
+            </div>
+
+    </div>
     <footer class="fr-footer" role="contentinfo" id="footer-942">
         <div class="fr-container">
             <div class="fr-footer__body">
@@ -180,36 +146,5 @@
     <!-- Script en version es6 module et nomodule pour les navigateurs le ne supportant pas -->
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
-    <script>
-       const form = document.getElementById('login')
-			form.addEventListener('submit', login)
-
-			async function login(event) {
-				event.preventDefault()
-				const username = document.getElementById('username').value
-				const password = document.getElementById('password').value
-
-				const result = await fetch('/api/login', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						username,
-						password
-					})
-				}).then((res) => res.json())
-
-				if (result.status === 'ok') {
-					// everythign went fine
-					console.log('Got the token: ', result.data)
-					localStorage.setItem('token', result.data)
-					window.location.href = "student/profil.html";
-				} else {
-					alert(result.error)
-				}
-			}
-    </script>
 </body>
-
 </html>

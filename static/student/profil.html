@@ -37,8 +37,8 @@
                             </div>
                         </div>
                         <div class="fr-header__service">
-                            <a href="../index.html"
-                                title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d‘état, gouvernement)]">
+                            <a href="../choix.html"
+                                title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d état, gouvernement)]">
                                 <p class="fr-header__service-title">Unisup</p>
                             </a>
                             <p class="fr-header__service-tagline">Entrez dans l’enseignement supérieur</p>
@@ -72,9 +72,7 @@
                         <li class="fr-nav__item">
                             <a class="fr-nav__link" href="./formations.html" target="_self">Formations</a>
                         </li>
-                        <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="#" target="_self">Professions</a>
-                        </li>
+                        
                         <li class="fr-nav__item">
                             <a class="fr-nav__link" href="./profil.html" target="_self" aria-current="true">Profil</a>
                         </li>
@@ -107,10 +105,10 @@
             </ul>
             <div id="tabpanel-404-panel" class="fr-tabs__panel fr-tabs__panel--selected" role="tabpanel" aria-labelledby="tabpanel-404" tabindex="0">
                 <!-- données de test -->
-                <p>Nom : </p>
-                <p>Prénom : </p>
-                <p>INE : </p>
-                <p>Mail : </p>
+               <p>Nom : <span id="getnom"></span></p>
+               <p>Prénom : <span id="getprenom"></span></p>
+               <p>INE : <span id="getusername"></span></p>
+               <p>Mail : </p>
             </div>
             <div id="tabpanel-405-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-405" tabindex="0">
                 <!-- données de test -->
@@ -223,7 +221,7 @@
             </div>
             <div id="tabpanel-409-panel" class="fr-tabs__panel" role="tabpanel" aria-labelledby="tabpanel-406" tabindex="0">
                 <!-- données de test -->
-                <p>Contenu 6</p>
+                <p>Vous avez éffectué 5 quizz au total </p>
             </div>
         </div>
     </div>
@@ -290,13 +288,24 @@
     <script type="module" src="../dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="../dsfr/dsfr.nomodule.min.js"></script>
     <script>
-        if(sessionStorage.getItem('token') != null){
-            // do nothing
-            console.log()
+        if(localStorage.getItem('token') != null){
+            console.log(localStorage.getItem('token'))
+            var headers = new Headers({
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            })
+            fetch('/users/me', { headers }).then((response) => {
+                console.log(response)
+                response.json().then((data) => {
+                    document.getElementById('getnom').innerText = data.user.nom 
+                    document.getElementById('getprenom').innerText = data.user.prenom
+                    document.getElementById('getusername').innerText = data.user.username
+                })
+            })
         } else {
             window.location.href = "../login.html";
             console.log()
         }
+        
     </script>
 </body>
 
