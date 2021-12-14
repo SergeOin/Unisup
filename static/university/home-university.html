@@ -6,6 +6,7 @@
     <link href="https://static.data.gouv.fr/_themes/gouvfr/less/index.css?_=1.1.2" rel="stylesheet">
     <link href="https://static.data.gouv.fr/_themes/gouvfr/js/index.css?_=1.1.2" rel="stylesheet">
     <link rel="stylesheet" href="../dsfr/dsfr.min.css">
+    <link rel="stylesheet" href="../dsfr/dashboard.css">
     <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
     <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png"><!-- 180×180 -->
     <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xmal">
@@ -85,8 +86,13 @@
                     <div class="hagrid">
                         <div class="row">
                             <div class="col-5 col-lg-12">
-                                <h1 class="mt-0 mb-md-md">Unisup est la plateforme nationale de préinscription en
-                                    enseignement supérieur en France.</h1>
+                                <div class="gauge">
+                                    <div class="gauge__body">
+                                        <div class="gauge__fill"></div>
+                                        <div class="gauge__cover"></div>
+                                    </div>
+                                    <h5>nombre de place restante</h5>
+                                </div>
                                 <div class="mt-md mt-lg-sm">
                                     <h4>Thématiques sur les formations et métiers</h4>
                                     <a href="/fr/pages/donnees-sante/" class="btn-venti my-md bg-blue-470">
@@ -108,13 +114,12 @@
                                 </div>
                             </div>
                             <div class="col-6 offset-1 offset-lg-0 col-lg-12 mt-lg-md">
-                                <h4>Actualités</h4>
+                                <p style= "font-size: 30px;">Liste d'attente</p>
+                                <p style= "color:orange; font-size: 35px;">1350</p>
                                 <a href="/fr/posts/stage-lequipe-de-data-gouv-fr-recherche-un-e-charge-e-de-valorisation-des-donnees-publiques-en-stage/"
                                     title="[Stage] L’équipe de data.gouv.fr recherche un·e chargé-e de valorisation des données publiques en stage"
                                     class="unstyled w-100 hero-post">
                                     <article class="search-result post-result mb-lg">
-                                        <div class="hero-image w-100 rounded-xxs"
-                                            style="background-image: url('img/boulanger.jpg')"></div>
                                         <div class="result-body p-md">
                                             <h3 class="result-title m-0">Pour devenir boulanger, un CAP de boulanger en
                                                 2 ans est suffisant. Il s'acquiert auprès d'un Centre de formation des
@@ -198,3 +203,18 @@
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
 </body>
 </html>
+<script>
+    const gaugeElement = document.querySelector(".gauge");
+function setGaugeValue(gauge, value) {
+    if (value < 0 || value > 1) {
+        return;
+    }
+    gauge.querySelector(".gauge__fill").style.transform = `rotate(${
+        value / 2
+    }turn)`;
+    gauge.querySelector(".gauge__cover").textContent = `${Math.round(
+        value * 100
+    )}%`;
+}
+setGaugeValue(gaugeElement, 0.3);
+</script>
