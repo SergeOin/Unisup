@@ -3,6 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Student = require('./model/student')
+const University = require('./model/university')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
@@ -89,6 +90,53 @@ app.post('/api/login', async (req, res) => {
 
 app.post('/api/register', async (req, res) => {
 	const { codeine, password: plainTextPassword, prenom, nom } = req.body
+
+	if (!codeine || typeof codeine !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid username' })
+	}
+
+	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid password' })
+	}
+
+	if (plainTextPassword.length < 5) {
+		return res.json({
+			status: 'error',
+			error: 'Password too small. Should be atleast 6 characters'
+		})
+	}
+
+	if (!prenom || typeof prenom !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid prenom' })
+	}
+
+	if (!nom || typeof nom !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid nom' })
+	}
+
+	const password = await bcrypt.hash(plainTextPassword, 10)
+
+	try {
+		const response = await Student.create({
+			codeine,
+			password,
+			prenom,
+			nom
+		})
+		console.log('Student created successfully: ', response)
+	} catch (error) {
+		if (error.code === 11000) {
+			// duplicate key
+			return res.json({ status: 'error', error: 'Username already in use' })
+		}
+		throw error
+	}
+
+	res.json({ status: 'ok' })
+})
+
+app.post('/api/university/register', async (req, res) => {
+	const { codeine, password: plainTextPassword } = req.body
 
 	if (!codeine || typeof codeine !== 'string') {
 		return res.json({ status: 'error', error: 'Invalid username' })
