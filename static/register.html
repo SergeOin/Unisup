@@ -61,11 +61,11 @@
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
     <script>
         const form = document.getElementById('reg-form')
-			form.addEventListener('submit', registerUser)
+			form.addEventListener('submit', registerStudent)
 
-			async function registerUser(event) {
+			async function registerStudent(event) {
 				event.preventDefault()
-				const username = document.getElementById('username').value
+				const codeine = document.getElementById('username').value
 				const password = document.getElementById('password').value
                 const prenom = document.getElementById('prenom').value
                 const nom = document.getElementById('nom').value
@@ -76,7 +76,7 @@
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						username,
+						codeine,
 						password,
                         prenom,
                         nom
