@@ -294,8 +294,8 @@
                 'Authorization': 'Bearer ' + localStorage.getItem('token')
             })
             fetch('/students/me', { headers }).then((response) => {
-                console.log(response)
                 response.json().then((data) => {
+                    console.log(data)
                     document.getElementById('getnom').innerText = data.student.nom 
                     document.getElementById('getprenom').innerText = data.student.prenom
                     document.getElementById('getusername').innerText = data.student.codeine
