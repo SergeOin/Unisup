@@ -29,6 +29,28 @@ app.get("/students/me", function(req, res){
 	})
 });
 
+app.get("/allstudents", function(req, res){
+	Student.find().then((result) => {
+		res.json(result)
+	}).catch((err) => {
+		console.log(err)
+	})
+});
+
+app.get("/university/me", function(req, res){
+	const authHeader =  req.headers.authorization.split('Bearer ')[1]
+	jwt.verify(authHeader, JWT_SECRET, (err, decoded) => {
+		if (err) return res.sendStatus(403)
+		University.findById(decoded.id, function(err, foundUniversity) {
+			if(err) {
+				req.flash("error", "Problème");
+				req.redirect("/");
+			}
+			res.json({university: foundUniversity});
+		})
+	})
+});
+
 app.post('/api/change-password', async (req, res) => {
 	const { token, newpassword: plainTextPassword } = req.body
 
@@ -92,7 +114,7 @@ app.post('/api/register', async (req, res) => {
 	const { codeine, password: plainTextPassword, prenom, nom } = req.body
 
 	if (!codeine || typeof codeine !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid username' })
+		return res.json({ status: 'error', error: 'Invalid Code INE' })
 	}
 
 	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
@@ -127,7 +149,7 @@ app.post('/api/register', async (req, res) => {
 	} catch (error) {
 		if (error.code === 11000) {
 			// duplicate key
-			return res.json({ status: 'error', error: 'Username already in use' })
+			return res.json({ status: 'error', error: 'Code INE already in use' })
 		}
 		throw error
 	}
@@ -136,10 +158,10 @@ app.post('/api/register', async (req, res) => {
 })
 
 app.post('/api/university/register', async (req, res) => {
-	const { codeine, password: plainTextPassword } = req.body
+	const { codeuniversity, password: plainTextPassword, universityname } = req.body
 
-	if (!codeine || typeof codeine !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid username' })
+	if (!codeuniversity || typeof codeuniversity !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid Code IES' })
 	}
 
 	if (!plainTextPassword || typeof plainTextPassword !== 'string') {
@@ -153,33 +175,53 @@ app.post('/api/university/register', async (req, res) => {
 		})
 	}
 
-	if (!prenom || typeof prenom !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid prenom' })
-	}
-
-	if (!nom || typeof nom !== 'string') {
-		return res.json({ status: 'error', error: 'Invalid nom' })
+	if (!universityname || typeof universityname !== 'string') {
+		return res.json({ status: 'error', error: 'Invalid name' })
 	}
 
 	const password = await bcrypt.hash(plainTextPassword, 10)
 
 	try {
-		const response = await Student.create({
-			codeine,
+		const response = await University.create({
+			codeuniversity,
 			password,
-			prenom,
-			nom
+			universityname
 		})
-		console.log('Student created successfully: ', response)
+		console.log('University created successfully: ', response)
 	} catch (error) {
 		if (error.code === 11000) {
 			// duplicate key
-			return res.json({ status: 'error', error: 'Username already in use' })
+			return res.json({ status: 'error', error: 'Code IES already in use' })
 		}
 		throw error
 	}
 
 	res.json({ status: 'ok' })
+})
+
+app.post('/api/university/login', async (req, res) => {
+	const { codeuniversity, password } = req.body
+	const university = await University.findOne({ codeuniversity }).lean()
+
+	if (!university) {
+		return res.json({ status: 'error', error: 'Invalid codeuniversity/password' })
+	}
+
+	if (await bcrypt.compare(password, university.password)) {
+		// the username, password combination is successful
+
+		const token = jwt.sign(
+			{
+				id: university._id,
+				codeuniversity: university.codeuniversity
+			},
+			JWT_SECRET
+		)
+
+		return res.json({ status: 'ok', data: token })
+	}
+
+	res.json({ status: 'error', error: 'Invalid username/password' })
 })
 
 app.listen(9999, () => {

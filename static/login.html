@@ -209,6 +209,15 @@
 					alert(result.error)
 				}
 			}
+            if(localStorage.getItem('token') != null){
+                console.log(localStorage.getItem('token'))
+                var headers = new Headers({
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                })
+                window.location.href = "student/profil.html"
+            } else {
+                console.log()
+            }
     </script>
 </body>
 

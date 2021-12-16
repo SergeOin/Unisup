@@ -1,10 +1,9 @@
 const mongoose = require('mongoose')
 const UniversitySchema = new mongoose.Schema(
 	{
-		codeine: { type: String, required: true, unique: true },
+		codeuniversity: { type: String, required: true, unique: true },
 		password: { type: String, required: true },
-		prenom: { type: String, required: true },
-		nom: { type: String, required: true }
+		universityname: { type: String, required: true },
 	},
 	{ collection: 'university' }
 )

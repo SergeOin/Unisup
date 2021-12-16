@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://static.data.gouv.fr/_themes/gouvfr/less/index.css?_=1.1.2" rel="stylesheet">
     <link href="https://static.data.gouv.fr/_themes/gouvfr/js/index.css?_=1.1.2" rel="stylesheet">
-    <link rel="stylesheet" href="../dsfr/dsfr.min.css">
+    <link rel="stylesheet" href="dsfr/dsfr.min.css">
     <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
-    <link rel="apple-touch-icon" href="../favicon/apple-touch-icon.png"><!-- 180×180 -->
-    <link rel="icon" href="../favicon/favicon.svg" type="image/svg+xmal">
-    <link rel="shortcut icon" href="../favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
-    <link rel="manifest" href="../favicon/manifest.webmanifest" crossorigin="use-credentials">
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png"><!-- 180×180 -->
+    <link rel="icon" href="favicon/favicon.svg" type="image/svg+xml">
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><!-- 32×32 -->
+    <link rel="manifest" href="favicon/manifest.webmanifest" crossorigin="use-credentials">
     <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
     <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
     <title>Bienvenue sur Unisup.gouv.fr</title>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="fr-header__service">
-                            <a href="../index.html"
+                            <a href="index.html"
                                 title="Accueil - [À MODIFIER - Nom du site / service] - [À MODIFIER - nom de l’entité (ministère , secrétariat d‘état, gouvernement)]">
                                 <p class="fr-header__service-title">Unisup</p>
                             </a>
@@ -46,7 +46,7 @@
                         <div class="fr-header__tools-links">
                             <ul class="fr-links-group">
                                 <li>
-                                    <a class="fr-link fr-fi-lock-line" href="../login-university.html">Se connecter</a>
+                                    <a class="fr-link fr-fi-lock-line" href="login-university.html">Se connecter</a>
                                 </li>
                             </ul>
                         </div>
@@ -55,97 +55,72 @@
             </div>
         </div>
         <div class="fr-header__menu fr-modal" id="modal-406" aria-labelledby="button-407">
-            <div class="fr-container" >
+            <div class="fr-container">
                 <button class="fr-link--close fr-link" aria-controls="modal-406">Fermer</button>
                 <div class="fr-header__menu-links">
                 </div>
                 <nav class="fr-nav" id="navigation-408" role="navigation" aria-label="Menu principal">
                     <ul class="fr-nav__list">
                         <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="home-university.html" target="_self" >Accueil</a>
+                            <a class="fr-nav__link" href="index.html" target="_self">Accueil</a>
                         </li>
                         <li class="fr-nav__item">
-                            <a class="fr-nav__link" href="liste.html" target="_self" aria-current="true">Liste des candidiat</a>
+                            <a class="fr-nav__link" href="./student/calendrier.html" target="_self">Calendrier</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="./student/formations.html" target="_self">Formations</a>
+                        </li>
+                        
+                        <li class="fr-nav__item">
+                            <a class="fr-nav__link" href="./student/profil.html" target="_self">Profil</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <div class="fr-container">
-        <div class="fr-table fr-table--layout-fixed">.
-            <table>
-                <caption>Liste des élèves</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">INE</th>
-                        <th scope="col">Taux de compatibilité</th>
-                        <th scope="col">Moyenne général</th>
-                        <th scope="col">Moyenne scientifique</th>
-                        <th scope="col">Recommandations</th>
-                    </tr>
-                </thead>
-                <tbody id="table-students">
-                    <tr>
-                        <td> <a href=pierre.html>2457346789G</td>
-                        <td>97%</td>
-                        <td>16,7</td>
-                        <td>18,9</td>
-                        <td>Oui</td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="py-xl py-lg-lg bg-grey-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 text-align-center offset-3 form-container col-md-12 offset-md-0">
+                    <form id="login" class="form" method="post" action="login.html">
+                        <fieldset>
+                            <legend class="h2 mb-xl">Se Connecter</legend>
+                            <input id="next" name="next" type="hidden" value="/fr/datasets/">
+                            <div class="field">
+                                <label for="codeuniversity" class="required">
+                                    Votre Code IES (Incriscription Ecole Supérieur)
+                                </label>
+                                <input type="text" autocomplete="off" id="codeuniversity" placeholder="Code INE" required></input>
+                            </div>
+                            <div class="field">
+                                <label for="password" class="required">
+                                    Mot de passe
+                                </label>
+                                <input id="password" name="password" type="password" autocomplete="off" required>
+                            </div>
+                            <button type="submit" value="Submit Form" class="btn btn-primary form-submit">Se connecter</button>
+                            <input id="csrf_token" name="csrf_token" type="hidden"value="IjVhMzk2ZmMwZTYxYjVlMTJjZWNlZWExMGY3ZjdmNTBjZjgzNmNiNjki.Ya4WIw.iuhKXbgvfCSQPojpasSP0kPAD8k">
+                            <div class="mt-lg">
+                                <p class="fs-sm mb-sm">
+                                    Mot de passe oublié ?
+                                    <a href="./change-password.html">
+                                        Récupérer votre mot de passe
+                                    </a>
+                                </p>
+                                <p class="fs-sm mb-sm">
+                                    Instructions de confirmation non reçues ?
+                                    <a href="/fr/confirm">
+                                        Renvoyer les instructions
+                                    </a>
+                                </p>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-        <nav role="navigation" class="fr-pagination" aria-label="Pagination">
-            <ul class="fr-pagination__list">
-                <li>
-                    <a class="fr-pagination__link fr-pagination__link--first">
-                        Première page
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label">
-                        Page précédente
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link" aria-current="page" title="Page 1">
-                        1
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link" href="#" title="Page 2">
-                        2
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link fr-displayed-lg">
-                        …
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link fr-displayed-lg" href="#" title="Page 130">
-                        5
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link fr-displayed-lg" href="#" title="Page 131">
-                        6
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label" href="#">
-                        Page suivante
-                    </a>
-                </li>
-                <li>
-                    <a class="fr-pagination__link fr-pagination__link--last" href="#">
-                        Dernière page
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    </section>
     <footer class="fr-footer" role="contentinfo" id="footer-942">
         <div class="fr-container">
             <div class="fr-footer__body">
@@ -206,31 +181,44 @@
     <script type="module" src="dsfr/dsfr.module.min.js"></script>
     <script type="text/javascript" nomodule src="dsfr/dsfr.nomodule.min.js"></script>
     <script>
-        fetch('/allstudents').then((response) => {
-                console.log(response)
-                response.json().then((data) => {
-                    let tbody = document.getElementById("table-students")
-                    data.forEach(element => {
-                        var tr = document.createElement("tr")
-                        var td = document.createElement("td")
-                        var td2 = document.createElement("td")
-                        var td3 = document.createElement("td")
-                        var td4 = document.createElement("td")
-                        var td5 = document.createElement("td")
-                        td.innerText = element.codeine
-                        td2.innerText = "87%"
-                        td3.innerText = "15,2"
-                        td4.innerText = "18,6"
-                        td5.innerText = "Oui"
-                        tr.appendChild(td)
-                        tr.appendChild(td2)
-                        tr.appendChild(td3)
-                        tr.appendChild(td4)
-                        tr.appendChild(td5)
-                        tbody.appendChild(tr)
-                    }); 
+       const form = document.getElementById('login')
+			form.addEventListener('submit', login)
+
+			async function login(event) {
+				event.preventDefault()
+				const codeuniversity = document.getElementById('codeuniversity').value
+				const password = document.getElementById('password').value
+
+				const result = await fetch('/api/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						codeuniversity,
+						password
+					})
+				}).then((res) => res.json())
+
+				if (result.status === 'ok') {
+					// everythign went fine
+					console.log('Got the token: ', result.data)
+					localStorage.setItem('token', result.data)
+					window.location.href = "university/home-university.html";
+				} else {
+					alert(result.error)
+				}
+			}
+            if(localStorage.getItem('token') != null){
+                console.log(localStorage.getItem('token'))
+                var headers = new Headers({
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
                 })
-            })
+                window.location.href = "university/home-university.html"
+            } else {
+                console.log()
+            }
     </script>
 </body>
+
 </html>
